@@ -46,14 +46,14 @@ const TRANSLATIONS = {
     terms: "Bằng cách tiếp tục, bạn đồng ý với Điều khoản & Chính sách bảo mật của Jobbod.",
     howItWorksBadge1: "CÁCH CHÚNG TÔI",
     howItWorksBadge2: "HOẠT ĐỘNG",
-    step1Title: "Hãy cho Adam biết bạn thuộc nhóm tính cách nào?",
-    step1Desc: "Hãy gửi yêu cầu của bạn trước 23:59 Thứ Sáu hàng tuần.",
-    step2Title: "Đợt ghép cặp Chủ Nhật (The Sunday Drop)",
-    step2Desc: "Kiểm tra email lúc 7h tối Chủ Nhật. Hệ thống gửi hồ sơ bạn đồng hành bù trừ kỹ năng hoàn hảo.",
-    step3Title: "Hẹn gặp tại quán Cafe quen",
-    step3Desc: "Lên lịch hẹn tại một quán cà phê quen thuộc gần trường để cùng trao đổi dự án.",
-    step4Title: "Sẵn sàng bứt phá!",
-    step4Desc: "Bắt đầu hành trình học tập, thi đấu và xây dựng dự án cùng đồng đội chuẩn gu.",
+    step1Title: "Hãy cho Jobbod biết bạn thuộc nhóm tính cách nào?",
+    step1Desc: "Hãy gửi yêu cầu của bạn trước 23:59 Thứ Sáu.",
+    step2Title: "The Sunday Drop",
+    step2Desc: "Hãy kiểm tra email của bạn lúc 7 giờ tối. Chúng tôi sẽ gửi cho bạn một người đồng đội phù hợp cá nhân hóa và sắp xếp buổi gặp cho bạn!",
+    step3Title: "Lên lịch ngày",
+    step3Desc: "Hãy tìm thời gian phù hợp với lịch trình của bạn để cả hai gặp nhau",
+    step4Title: "Good luck!",
+    step4Desc: "Hãy bắt đầu kết nối với những người bạn phù hợp với bạn trên hành trình học đường này nào!",
     companionBadge1: "NGƯỜI BẠN ĐỒNG HÀNH",
     companionBadge2: "CÁ NHÂN HÓA CỦA BẠN",
     compCol1Title: "Nền tảng đối soát tâm lý & nhận thức học đường",
@@ -201,14 +201,14 @@ const TRANSLATIONS = {
     terms: "By continuing, you agree to our Terms & Privacy Policy.",
     howItWorksBadge1: "HOW IT",
     howItWorksBadge2: "WORKS",
-    step1Title: "Tell Adam about your working style",
-    step1Desc: "Submit your preferences before 11:59 PM Friday.",
+    step1Title: "Tell Jobbod about your personality type",
+    step1Desc: "Submit your request before 11:59 PM Friday.",
     step2Title: "The Sunday Drop",
-    step2Desc: "Check your email at 7:00 PM Sunday. Receive your complementary teammate match.",
-    step3Title: "Meet at a Cozy Campus Cafe",
-    step3Desc: "Schedule a safe offline meetup at a verified cafe spot near campus.",
-    step4Title: "Start Building!",
-    step4Desc: "Collaborate, compete, and accelerate your academic journey together.",
+    step2Desc: "Check your email at 7:00 PM. We will send you a personalized compatible teammate and schedule your meetup!",
+    step3Title: "Set the date",
+    step3Desc: "Find a mutual time that fits both schedules to meet up",
+    step4Title: "Good luck!",
+    step4Desc: "Start connecting with like-minded peers on your academic journey!",
     companionBadge1: "YOUR PERSONALIZED",
     companionBadge2: "STUDY COMPANION",
     compCol1Title: "Cognitive Matching Framework",
@@ -347,22 +347,40 @@ const TRANSLATIONS = {
 
 const FAQ_DATA = [
   {
-    q_vi: "Hệ thống ghép cặp người dùng như thế nào?",
-    q_en: "How does the system match users?",
-    a_vi: "Hệ thống sử dụng mô hình AI Adam để phân tích Career DNA, kỹ năng chuyên môn và tính cách học tập của bạn, từ đó ghép cặp với ứng viên có kỹ năng bổ trợ hoàn hảo nhất.",
-    a_en: "The system leverages Adam AI algorithms to analyze your Career DNA, technical skills, and work style to pair you with teammates whose strengths complement yours."
+    q: "Jobbod ghép cặp người dùng như thế nào?",
+    a: "Jobbod sử dụng thuật toán đàm phán máy-với-máy (A2A) để tự động đối soát hồ sơ. Hệ thống không ghép ngẫu nhiên mà phân tích nguyên tắc bù trừ kỹ năng (ví dụ: bạn giỏi Code, AI sẽ tìm người giỏi Design/Thuyết trình) và độ tương thích về phong cách làm việc để đề xuất đồng đội chuẩn xác nhất."
   },
   {
-    q_vi: "Hệ thống hoạt động như thế nào?",
-    q_en: "How does the system work?",
-    a_vi: "Bạn chỉ cần gửi thông tin hoặc trò chuyện với Adam trước thứ Sáu. Vào Chủ Nhật, hệ thống sẽ gửi 1 người bạn đồng hành tương thích kèm địa điểm gặp gỡ an toàn.",
-    a_en: "Simply submit your profile or chat with Adam before Friday. On Sunday, you will receive one tailored peer match along with a safe campus meet-up suggestion."
+    q: "Jobbod hoạt động như thế nào?",
+    a: "Bạn không cần điền form hay lướt tìm hồ sơ. Bạn chỉ cần truy cập link/QR và trò chuyện tự nhiên với trợ lý AI Adam. AI sẽ tự bóc tách nhu cầu, tạo lập hồ sơ năng lực thực chiến (Career DNA) ngầm, tự động đàm phán với AI của người khác để chốt nhóm, và cuối cùng là gợi ý địa điểm gặp mặt trực tiếp."
   },
   {
-    q_vi: "Tôi sẽ biết gì về người được ghép trước khi gặp gỡ?",
-    q_en: "What will I know about my match before meeting?",
-    a_vi: "Bạn sẽ được xem trường học, chuyên ngành, các thế mạnh kỹ năng và lý do Adam đề xuất bạn với người đó.",
-    a_en: "You can view their verified university, major, skill sets, and the compatibility factors determined by Adam."
+    q: "Tôi sẽ biết gì về người được ghép trước khi gặp gỡ?",
+    a: "Bạn sẽ được xem trước bản tóm tắt Career DNA ẩn danh của đối tác, bao gồm: thế mạnh kỹ năng, vai trò dự kiến trong nhóm, và phong cách chạy deadline. Thông tin định danh cá nhân (tên thật, phương thức liên lạc) chỉ được mở khóa khi cả hai bên cùng xác nhận đồng ý ghép cặp (Human-in-the-loop)."
+  },
+  {
+    q: "Nếu tôi không thích người ghép cặp đó thì sao?",
+    a: "Bạn hoàn toàn nắm quyền quyết định cuối cùng. Nếu hồ sơ Career DNA do AI đề xuất không đúng ý, bạn chỉ cần bấm từ chối. AI Adam sẽ ghi nhận phản hồi để tinh chỉnh lại tiêu chí và tiếp tục tự động tìm kiếm phương án ghép cặp khác phù hợp hơn."
+  },
+  {
+    q: "Ai sẽ tham gia?",
+    a: "Trong giai đoạn đầu, hệ thống thiết kế dành riêng cho sinh viên các trường đại học có nhu cầu tìm đồng đội để làm đồ án môn học, tham gia các cuộc thi học thuật, hackathon hoặc các dự án thực tế ngắn hạn."
+  },
+  {
+    q: "Nếu tôi không thể đến vào phút cuối thì sao?",
+    a: "Bạn cần báo hủy trực tiếp trên giao diện chat của Jobbod để hệ thống thông báo cho đối tác 6 tiếng trước cuộc hẹn. Cần lưu ý, việc bùng hẹn (ghosting) hoặc hủy sát giờ nhiều lần sẽ làm giảm điểm uy tín trong hồ sơ Career DNA của bạn, ảnh hưởng đến khả năng được AI ưu tiên ghép nối trong tương lai."
+  },
+  {
+    q: "Thông thường mất bao lâu?",
+    a: "Quá trình trò chuyện (onboarding) với AI Adam chỉ mất khoảng 2-3 phút. Thời gian AI đàm phán ngầm để chốt được nhóm thành công thường diễn ra trong vài giờ đến tối đa 24h, tùy thuộc vào độ hiếm của kỹ năng mà bạn đang tìm kiếm hoặc bù trừ."
+  },
+  {
+    q: "Nếu tôi không nhận được phản hồi từ Jobbod thì sao?",
+    a: "Đừng lo lắng, Jobbod luôn đàm phán ngầm liên tục 24/7. Nếu hệ thống chưa tìm được người khớp 100% yêu cầu, AI Adam sẽ chủ động nhắn tin cập nhật tiến độ cho bạn và gợi ý nới lỏng một vài tiêu chí (như khoảng cách di chuyển hoặc lịch rảnh) để đẩy nhanh tốc độ ghép nhóm."
+  },
+  {
+    q: "Các buổi gặp gỡ thường diễn ra ở đâu?",
+    a: "Jobbod sẽ tự động phân tích vị trí và lịch trình của các thành viên để gợi ý điểm hẹn tại các không gian công cộng an toàn như khuôn viên trường đại học hoặc các quán cà phê đối tác ngay gần khu vực học tập của bạn."
   }
 ];
 
@@ -406,7 +424,6 @@ export default function App() {
   const [lang, setLang] = useState('vi');
   const t = TRANSLATIONS[lang];
 
-  // Views: 'landing' | 'onboarding_step1' | 'onboarding_step2' | 'onboarding_step3' | 'dashboard'
   const [currentView, setCurrentView] = useState('landing'); 
   const [showLoginModal, setShowLoginModal] = useState(false);
   const [loginInput, setLoginInput] = useState('');
@@ -415,7 +432,6 @@ export default function App() {
   const [openFaqIndex, setOpenFaqIndex] = useState(null);
   const [infoModalType, setInfoModalType] = useState(null);
 
-  // Đếm ngược thời gian thực tế
   const [timeLeft, setTimeLeft] = useState({ hours: 12, minutes: 1, seconds: 20 });
 
   useEffect(() => {
@@ -463,7 +479,6 @@ export default function App() {
   const [isAddingProject, setIsAddingProject] = useState(false);
   const [projForm, setProjForm] = useState({ name: '', role: '', link: '' });
 
-  // Onboarding Step 2 AI Chat
   const [onboardingChatStep, setOnboardingChatStep] = useState(0);
   const [onboardingMessages, setOnboardingMessages] = useState([
     {
@@ -485,7 +500,6 @@ export default function App() {
   const [isCommitted, setIsCommitted] = useState(false);
   const [isSubmittedSuccess, setIsSubmittedSuccess] = useState(false);
 
-  // General AI Matching Chat
   const [messages, setMessages] = useState([
     {
       id: 1,
@@ -764,93 +778,204 @@ export default function App() {
             </footer>
           </section>
 
-          {/* SECTION 2: CÁCH CHÚNG TÔI HOẠT ĐỘNG */}
-          <section className="relative min-h-screen w-full py-24 px-6 flex flex-col items-center justify-center border-t border-white/10">
-            <div className="mb-14 text-center">
-              <div className="inline-block bg-stone-950/75 border border-stone-200/15 rounded-2xl px-8 py-3 shadow-xl backdrop-blur-xl">
-                <span className="block text-xs md:text-sm font-extrabold uppercase tracking-widest text-stone-300">{t.howItWorksBadge1}</span>
-                <span className="block text-lg md:text-xl font-black tracking-wider text-amber-300">{t.howItWorksBadge2}</span>
+          {/* SECTION 2: CÁCH CHÚNG TÔI HOẠT ĐỘNG (CHUẨN 100% THEO ẢNH GỐC) */}
+          <section className="relative min-h-screen w-full py-20 px-6 md:px-16 flex flex-col items-center justify-between border-t border-white/10 overflow-hidden">
+            {/* Ảnh nền nhóm sinh viên làm việc nhóm */}
+            <div 
+              className="absolute inset-0 bg-cover bg-center -z-10 pointer-events-none"
+              style={{
+                backgroundImage: `url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=1600&auto=format&fit=crop&q=80')`,
+                filter: 'brightness(0.32) contrast(1.1)'
+              }}
+            />
+            <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-transparent to-black/80 -z-10" />
+
+            {/* Badge Tiêu đề chính giữa: CÁCH CHÚNG TÔI HOẠT ĐỘNG */}
+            <div className="w-full flex justify-center mb-10 z-10">
+              <div className="bg-black/90 border border-white/20 rounded-2xl px-8 py-3 text-center shadow-2xl backdrop-blur-md min-w-[260px]">
+                <span className="block text-xs md:text-sm font-black uppercase tracking-widest text-white">
+                  {t.howItWorksBadge1}
+                </span>
+                <span className="block text-xl md:text-2xl font-black tracking-wider text-[#3B82F6] mt-0.5 uppercase">
+                  {t.howItWorksBadge2}
+                </span>
               </div>
             </div>
 
-            <div className="max-w-4xl w-full grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div className="bg-stone-950/70 backdrop-blur-xl border border-white/10 rounded-3xl p-6 shadow-xl space-y-3">
-                <div className="flex items-start gap-3">
-                  <span className="w-6 h-6 rounded-full bg-amber-400 text-stone-900 font-bold text-xs flex items-center justify-center flex-shrink-0 mt-0.5 shadow-md">1</span>
-                  <h3 className="font-bold text-base md:text-lg text-white leading-snug">{t.step1Title}</h3>
-                </div>
-                <p className="text-xs text-stone-300 pl-9 leading-relaxed">{t.step1Desc}</p>
-                <div className="pl-9 pt-1">
-                  <div className="inline-flex items-center gap-2 bg-stone-900/60 p-2.5 rounded-2xl border border-white/10">
-                    <span className="text-lg">🎙️</span><span className="text-lg">👩‍💻</span><span className="text-lg">🎨</span><span className="text-lg">📊</span>
-                    <span className="text-[11px] font-bold text-amber-300 ml-1 bg-white/5 px-2 py-1 rounded-lg">Adam AI</span>
-                  </div>
-                </div>
-              </div>
+            {/* 4 Bước dạng nổi trên nền ảnh gốc */}
+            <div className="max-w-6xl w-full grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-12 z-10 my-auto text-white">
               
-              <div className="bg-stone-950/70 backdrop-blur-xl border border-white/10 rounded-3xl p-6 shadow-xl space-y-3">
-                <div className="flex items-start gap-3">
-                  <span className="w-6 h-6 rounded-full bg-amber-400 text-stone-900 font-bold text-xs flex items-center justify-center flex-shrink-0 mt-0.5 shadow-md">2</span>
-                  <h3 className="font-bold text-base md:text-lg text-white leading-snug">{t.step2Title}</h3>
+              {/* BƯỚC 1: Hãy cho Jobbod biết bạn thuộc nhóm tính cách nào? */}
+              <div className="flex flex-col space-y-3 max-w-lg">
+                <div className="flex items-center gap-3">
+                  <span className="w-7 h-7 rounded-full bg-[#EA580C] text-white font-extrabold text-sm flex items-center justify-center flex-shrink-0 shadow-md">
+                    1
+                  </span>
+                  <h3 className="text-base md:text-lg font-bold text-white tracking-wide">
+                    {t.step1Title}
+                  </h3>
                 </div>
-                <p className="text-xs text-stone-300 pl-9 leading-relaxed">{t.step2Desc}</p>
-                <div className="pl-9 pt-1 grid grid-cols-4 gap-2.5">
-                  <div className="rounded-xl overflow-hidden border border-white/15 bg-stone-900/60 p-1 text-center shadow">
-                    <div className="w-full h-14 rounded-lg overflow-hidden bg-stone-800">
-                      <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=200&auto=format&fit=crop&q=80" alt="Nam" className="w-full h-full object-cover object-top" />
-                    </div>
-                    <span className="text-[10px] font-semibold text-stone-200 block mt-1">Nam</span>
+                <p className="text-xs text-stone-200 pl-10 leading-relaxed font-normal">
+                  {t.step1Desc}
+                </p>
+
+                {/* Minh họa: Sticker CV icon bar + Mockup điện thoại */}
+                <div className="pl-10 pt-2 flex items-center gap-3">
+                  <div className="bg-[#2563EB] rounded-2xl p-1.5 px-3 flex items-center gap-2 shadow-xl border border-blue-400/40">
+                    <span className="bg-white text-blue-800 text-[10px] font-black px-1.5 py-0.5 rounded shadow">
+                      📄 CV
+                    </span>
+                    <span className="text-base">👩‍💼</span>
+                    <span className="text-base">👨‍💻</span>
+                    <span className="bg-[#84CC16] text-black text-[10px] font-black px-1.5 py-0.5 rounded shadow tracking-tighter">
+                      JOB
+                    </span>
                   </div>
-                  <div className="rounded-xl overflow-hidden border border-white/15 bg-stone-900/60 p-1 text-center shadow">
-                    <div className="w-full h-14 rounded-lg overflow-hidden bg-stone-800">
-                      <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=200&auto=format&fit=crop&q=80" alt="An" className="w-full h-full object-cover object-top" />
-                    </div>
-                    <span className="text-[10px] font-semibold text-stone-200 block mt-1">An</span>
-                  </div>
-                  <div className="rounded-xl overflow-hidden border border-white/15 bg-stone-900/60 p-1 text-center shadow">
-                    <div className="w-full h-14 rounded-lg overflow-hidden bg-stone-800">
-                      <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=200&auto=format&fit=crop&q=80" alt="John" className="w-full h-full object-cover object-top" />
-                    </div>
-                    <span className="text-[10px] font-semibold text-stone-200 block mt-1">John</span>
-                  </div>
-                  <div className="rounded-xl overflow-hidden border border-white/15 bg-stone-900/60 p-1 text-center shadow">
-                    <div className="w-full h-14 rounded-lg overflow-hidden bg-stone-800">
-                      <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=200&auto=format&fit=crop&q=80" alt="Nga" className="w-full h-full object-cover object-top" />
-                    </div>
-                    <span className="text-[10px] font-semibold text-stone-200 block mt-1">Nga</span>
+
+                  <div className="w-14 h-24 bg-black rounded-2xl border-2 border-stone-600 p-1 relative shadow-2xl overflow-hidden flex flex-col justify-end">
+                    <div className="absolute top-1 left-1/2 transform -translate-x-1/2 w-4 h-1 bg-stone-700 rounded-full" />
+                    <img 
+                      src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=200&auto=format&fit=crop&q=80" 
+                      alt="Candidate phone screen" 
+                      className="w-full h-20 object-cover rounded-xl grayscale contrast-125"
+                    />
                   </div>
                 </div>
               </div>
 
-              <div className="bg-stone-950/70 backdrop-blur-xl border border-white/10 rounded-3xl p-6 shadow-xl space-y-3">
-                <div className="flex items-start gap-3">
-                  <span className="w-6 h-6 rounded-full bg-amber-400 text-stone-900 font-bold text-xs flex items-center justify-center flex-shrink-0 mt-0.5 shadow-md">3</span>
-                  <h3 className="font-bold text-base md:text-lg text-white leading-snug">{t.step3Title}</h3>
+              {/* BƯỚC 2: The Sunday Drop */}
+              <div className="flex flex-col space-y-3 max-w-lg">
+                <div className="flex items-center gap-3">
+                  <span className="w-7 h-7 rounded-full bg-[#EA580C] text-white font-extrabold text-sm flex items-center justify-center flex-shrink-0 shadow-md">
+                    2
+                  </span>
+                  <h3 className="text-base md:text-lg font-bold text-white tracking-wide">
+                    {t.step2Title}
+                  </h3>
                 </div>
-                <p className="text-xs text-stone-300 pl-9 leading-relaxed">{t.step3Desc}</p>
-                <div className="pl-9 pt-1">
-                  <div className="bg-stone-900/80 border border-white/10 p-3 rounded-2xl w-40 text-center shadow">
-                    <div className="text-[10px] font-bold text-amber-300 tracking-wider uppercase mb-1">Tháng 9, 2026</div>
-                    <div className="flex justify-around text-[10px] text-stone-400 font-mono">
-                      <span>T6</span><span className="text-amber-300 font-bold">T7</span><span className="text-amber-400 font-bold underline">CN</span>
+                <p className="text-xs text-stone-200 pl-10 leading-relaxed font-normal">
+                  {t.step2Desc}
+                </p>
+
+                {/* Minh họa: 4 Thẻ thành viên pastel Nam, An, John, Nga */}
+                <div className="pl-10 pt-2">
+                  <div className="inline-flex rounded-xl overflow-hidden shadow-2xl border-2 border-white/60 bg-white">
+                    <div className="w-16 bg-[#FEF08A] flex flex-col items-center p-1 border-r border-stone-300">
+                      <img 
+                        src="https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?w=200&auto=format&fit=crop&q=80" 
+                        alt="Nam" 
+                        className="w-14 h-16 object-cover rounded" 
+                      />
+                      <span className="text-[11px] font-bold text-stone-900 mt-1">Nam</span>
                     </div>
-                    <div className="text-[11px] text-stone-200 mt-1 font-semibold">19:00 Khởi hành</div>
+
+                    <div className="w-16 bg-[#DDD6FE] flex flex-col items-center p-1 border-r border-stone-300">
+                      <img 
+                        src="https://images.unsplash.com/photo-1517841905240-472988babdf9?w=200&auto=format&fit=crop&q=80" 
+                        alt="An" 
+                        className="w-14 h-16 object-cover rounded" 
+                      />
+                      <span className="text-[11px] font-bold text-stone-900 mt-1">An</span>
+                    </div>
+
+                    <div className="w-16 bg-[#BBF7D0] flex flex-col items-center p-1 border-r border-stone-300">
+                      <img 
+                        src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&auto=format&fit=crop&q=80" 
+                        alt="John" 
+                        className="w-14 h-16 object-cover rounded" 
+                      />
+                      <span className="text-[11px] font-bold text-stone-900 mt-1">John</span>
+                    </div>
+
+                    <div className="w-16 bg-[#FBCFE8] flex flex-col items-center p-1">
+                      <img 
+                        src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=200&auto=format&fit=crop&q=80" 
+                        alt="Nga" 
+                        className="w-14 h-16 object-cover rounded" 
+                      />
+                      <span className="text-[11px] font-bold text-stone-900 mt-1">Nga</span>
+                    </div>
                   </div>
                 </div>
               </div>
 
-              <div className="bg-stone-950/70 backdrop-blur-xl border border-white/10 rounded-3xl p-6 shadow-xl space-y-3">
-                <div className="flex items-start gap-3">
-                  <span className="w-6 h-6 rounded-full bg-amber-400 text-stone-900 font-bold text-xs flex items-center justify-center flex-shrink-0 mt-0.5 shadow-md">4</span>
-                  <h3 className="font-bold text-base md:text-lg text-white leading-snug">{t.step4Title}</h3>
+              {/* BƯỚC 3: Lên lịch ngày (Cuốn lịch để bàn) */}
+              <div className="flex flex-col space-y-3 max-w-lg">
+                <div className="flex items-center gap-3">
+                  <span className="w-7 h-7 rounded-full bg-[#EA580C] text-white font-extrabold text-sm flex items-center justify-center flex-shrink-0 shadow-md">
+                    3
+                  </span>
+                  <h3 className="text-xl md:text-2xl font-serif font-bold text-white tracking-wide" style={{ fontFamily: "'Playfair Display', serif" }}>
+                    {t.step3Title}
+                  </h3>
                 </div>
-                <p className="text-xs text-stone-300 pl-9 leading-relaxed">{t.step4Desc}</p>
-                <div className="pl-9 pt-1">
-                  <div className="w-full h-24 rounded-2xl overflow-hidden border border-white/10">
-                    <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=500&auto=format&fit=crop&q=80" alt="Student Group" className="w-full h-full object-cover" />
+                <p className="text-xs text-stone-200 pl-10 leading-relaxed font-normal">
+                  {t.step3Desc}
+                </p>
+
+                {/* Minh họa: Cuốn lịch để bàn Desk Calendar nghiêng 3D */}
+                <div className="pl-10 pt-2">
+                  <div className="w-48 bg-[#FFFDF9] text-stone-900 rounded-xl p-3 shadow-2xl border-2 border-amber-500/80 relative font-sans transform -rotate-2 hover:rotate-0 transition-transform">
+                    <div className="absolute -top-2 inset-x-0 flex justify-around px-3">
+                      {[...Array(7)].map((_, i) => (
+                        <span key={i} className="w-1.5 h-3 bg-stone-700 rounded-full border border-stone-900 shadow-sm" />
+                      ))}
+                    </div>
+
+                    <div className="bg-[#EA580C] text-white rounded-md px-2 py-1 flex items-center justify-between mt-1 shadow-inner">
+                      <span className="text-[10px] font-black uppercase tracking-wider">NOVEMBER</span>
+                      <span className="text-[10px] font-mono font-bold">2025</span>
+                    </div>
+
+                    <div className="grid grid-cols-7 gap-0.5 text-[8px] font-bold text-stone-400 text-center mt-2 border-b border-stone-200 pb-1">
+                      <span>SUN</span><span>MON</span><span>TUE</span><span>WED</span><span>THU</span><span>FRI</span><span>SAT</span>
+                    </div>
+
+                    <div className="grid grid-cols-7 gap-0.5 text-[8.5px] font-semibold text-center mt-1.5 text-stone-800">
+                      <span className="opacity-0">1</span>
+                      <span className="opacity-0">1</span>
+                      <span className="opacity-0">1</span>
+                      <span>1</span><span>2</span><span>3</span><span>4</span>
+                      <span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>10</span>
+                      <span className="border border-[#EA580C] text-[#EA580C] rounded-full w-4 h-4 flex items-center justify-center mx-auto font-black">11</span>
+                      <span>12</span>
+                      <span className="border border-blue-600 text-blue-700 rounded-full w-4 h-4 flex items-center justify-center mx-auto font-black">13</span>
+                      <span className="bg-[#EA580C] text-white rounded-full w-4 h-4 flex items-center justify-center mx-auto font-black shadow-sm">14</span>
+                      <span className="border border-emerald-600 text-emerald-700 rounded-full w-4 h-4 flex items-center justify-center mx-auto font-black">15</span>
+                      <span className="border border-amber-600 text-amber-700 rounded-full w-4 h-4 flex items-center justify-center mx-auto font-black">16</span>
+                      <span>17</span><span>18</span><span>19</span><span>20</span><span>21</span><span>22</span><span>23</span>
+                      <span>24</span><span>25</span><span>26</span><span>27</span><span>28</span><span>29</span><span>30</span>
+                    </div>
                   </div>
                 </div>
               </div>
+
+              {/* BƯỚC 4: Good luck! */}
+              <div className="flex flex-col space-y-3 max-w-lg">
+                <div className="flex items-center gap-3">
+                  <span className="w-7 h-7 rounded-full bg-[#EA580C] text-white font-extrabold text-sm flex items-center justify-center flex-shrink-0 shadow-md">
+                    4
+                  </span>
+                  <h3 className="text-xl md:text-2xl font-serif font-bold text-white tracking-wide" style={{ fontFamily: "'Playfair Display', serif" }}>
+                    {t.step4Title}
+                  </h3>
+                </div>
+                <p className="text-xs text-stone-200 pl-10 leading-relaxed font-normal">
+                  {t.step4Desc}
+                </p>
+
+                {/* Minh họa: Ảnh 2 bạn sinh viên ôm sách đứng trước campus */}
+                <div className="pl-10 pt-2">
+                  <div className="w-52 h-32 rounded-2xl overflow-hidden border-2 border-white shadow-2xl bg-stone-900">
+                    <img 
+                      src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=500&auto=format&fit=crop&q=80" 
+                      alt="Two students meeting" 
+                      className="w-full h-full object-cover object-top hover:scale-105 transition-transform duration-500"
+                    />
+                  </div>
+                </div>
+              </div>
+
             </div>
           </section>
 
@@ -986,16 +1111,17 @@ export default function App() {
                 <span className="text-xs md:text-sm font-black tracking-wide text-white uppercase">{t.p9Badge}</span>
               </div>
             </div>
-            <div className="w-full max-w-2xl bg-stone-950/75 backdrop-blur-xl border border-white/10 rounded-3xl p-6 md:p-8 shadow-2xl space-y-3">
+            
+            <div className="w-full max-w-2xl bg-stone-950/85 backdrop-blur-2xl border border-white/10 rounded-3xl p-6 md:p-8 shadow-2xl space-y-3 max-h-[60vh] overflow-y-auto">
               {FAQ_DATA.map((faq, idx) => (
                 <div key={idx} className="border-b border-white/10 pb-3 last:border-b-0 last:pb-0">
                   <button onClick={() => toggleFaq(idx)} className="w-full flex items-center justify-between text-left py-2 text-xs md:text-sm font-bold text-white hover:text-amber-300 transition-colors">
-                    <span>{lang === 'vi' ? faq.q_vi : faq.q_en}</span>
-                    <ChevronDown size={18} className={`transition-transform duration-200 text-amber-300 ${openFaqIndex === idx ? 'rotate-180' : ''}`} />
+                    <span>{faq.q}</span>
+                    <ChevronDown size={18} className={`transition-transform duration-200 text-amber-300 flex-shrink-0 ml-2 ${openFaqIndex === idx ? 'rotate-180' : ''}`} />
                   </button>
                   {openFaqIndex === idx && (
-                    <div className="pt-2 pb-1 text-xs text-stone-300 leading-relaxed pl-2 border-l-2 border-amber-400">
-                      {lang === 'vi' ? faq.a_vi : faq.a_en}
+                    <div className="pt-2 pb-2 text-xs text-stone-300 leading-relaxed pl-2 border-l-2 border-amber-400 animate-fadeIn">
+                      {faq.a}
                     </div>
                   )}
                 </div>
