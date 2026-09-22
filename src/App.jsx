@@ -1,9 +1,17 @@
 import bgImage from './assets/background.png';
+import crtScanImage from './assets/crt-scan.png';
+import researchBooksImage from './assets/research-books.png';
+import skillFrameImage from './assets/skill-frame.png';
+import jobbodNotificationImage from './assets/jobbod-notification.png';
+import socialIconsCardImage from './assets/social-icons-card.png';
+import studentVerifiedImage from './assets/student-verified.png';
+import campusFriendsImage from './assets/campus-friends.png';
+import campusIllustrationImage from './assets/campus-illustration.png';
 import { useState, useEffect, useRef } from 'react';
 import { 
   Sparkles, Send, Bot, MapPin, Search, Users, Clock, 
   QrCode, Link as LinkIcon, Camera, X, Check, MessageSquare, ChevronLeft,
-  Laptop, BookOpen, Globe, ChevronDown, UserCheck, Coffee, Bell,
+  Globe, ChevronDown, Bell,
   ArrowUpRight, Trash2, Plus, CheckCircle2, ShieldCheck, Mail, BookMarked, Award, School
 } from 'lucide-react';
 
@@ -36,50 +44,49 @@ const TRANSLATIONS = {
   vi: {
     login: "Đăng nhập",
     joinNow: "Tham gia ngay",
-    noReply: "Adam không trả lời?",
+    noReply: "Jobbod không trả lời ?",
     resend: "Gửi lại thông báo",
     heroTitle1: "Bắt cặp đúng gu – Chốt team",
     heroTitle2: "học tập & dự án",
     yourSchool: "@ Trường học của bạn",
-    meetTime: "Thời gian mở đợt ghép tuần này",
-    sendMsgBtn: "Nhắn cho Adam để chốt team",
+    enrollDeadline: "Đăng ký trước 23/09/2026 để được ghép cặp",
+    sendMsgBtn: "Gửi tin nhắn cho Jobbod để tham gia",
     terms: "Bằng cách tiếp tục, bạn đồng ý với Điều khoản & Chính sách bảo mật của Jobbod.",
     howItWorksBadge1: "CÁCH CHÚNG TÔI",
     howItWorksBadge2: "HOẠT ĐỘNG",
-    step1Title: "Hãy cho Jobbod biết bạn thuộc nhóm tính cách nào?",
-    step1Desc: "Hãy gửi yêu cầu của bạn trước 23:59 Thứ Sáu.",
-    step2Title: "The Sunday Drop",
-    step2Desc: "Hãy kiểm tra email của bạn lúc 7 giờ tối. Chúng tôi sẽ gửi cho bạn một người đồng đội phù hợp cá nhân hóa và sắp xếp buổi gặp cho bạn!",
-    step3Title: "Lên lịch ngày",
-    step3Desc: "Hãy tìm thời gian phù hợp với lịch trình của bạn để cả hai gặp nhau",
-    step4Title: "Good luck!",
-    step4Desc: "Hãy bắt đầu kết nối với những người bạn phù hợp với bạn trên hành trình học đường này nào!",
+    step1Title: "Hãy cho Adam biết bạn thuộc nhóm tính cách nào?",
+    step1Desc: "Hãy gửi yêu cầu của bạn trước 23:59 Thứ Sáu hàng tuần.",
+    step2Title: "Đợt ghép cặp Chủ Nhật (The Sunday Drop)",
+    step2Desc: "Kiểm tra email lúc 7h tối Chủ Nhật. Hệ thống gửi hồ sơ bạn đồng hành bù trừ kỹ năng hoàn hảo.",
+    step3Title: "Hẹn gặp tại quán Cafe quen",
+    step3Desc: "Lên lịch hẹn tại một quán cà phê quen thuộc gần trường để cùng trao đổi dự án.",
+    step4Title: "Sẵn sàng bứt phá!",
+    step4Desc: "Bắt đầu hành trình học tập, thi đấu và xây dựng dự án cùng đồng đội chuẩn gu.",
+    
+    // ĐÃ CẬP NHẬT NỘI DUNG SECTION 3 THEO ĐÚNG YÊU CẦU ẢNH MẪU
     companionBadge1: "NGƯỜI BẠN ĐỒNG HÀNH",
     companionBadge2: "CÁ NHÂN HÓA CỦA BẠN",
-    compCol1Title: "Nền tảng đối soát tâm lý & nhận thức học đường",
-    compCol1Sub: "Chuyên gia ghép cặp",
-    compCol1Desc: "Thuật toán tối ưu hóa theo phương pháp khoa học",
-    compCol2Title: "Adam thấu hiểu chuyên ngành, thế mạnh và phong cách làm việc của bạn.",
+    compCol1Title: "Được hỗ trợ bởi những nghiên cứu AI tốt nhất",
+    compCol2Title: "Jobbod tìm hiểu thông tin cá nhân, chuyên ngành và sở thích việc làm của bạn.",
     compCol2Scan: "🎯 Quét DNA kỹ năng",
-    compCol3Title: "Tìm kiếm bạn đồng hành có năng lực bù trừ chính xác phần bạn còn thiếu.",
-    compCol3Sub: "Đối soát thông minh",
-    compCol3Desc: "Đồng bộ dữ liệu thời gian thực",
+    compCol3Title: "Quét toàn bộ nhóm để tìm ra người thực sự phù hợp với bạn.",
+
     chatAiBtn: "Trò chuyện với AI ngay",
     p7Badge: "BẠN ĐÃ CHÁN TÌM CỘNG SỰ THÔNG QUA VIỆC LƯỚT FACEBOOK VÀ CÁC HỘI NHÓM MXH CHƯA?",
-    p7SubBadge: "Hệ sinh thái này chính là dành cho bạn!",
-    p7LeftHeader: "Trên Jobbod",
-    p7LeftSub: "Lời mời gặp mặt sẵn sàng sử dụng",
+    p7SubBadge: "Jobbod chính là dành cho bạn!",
+    p7LeftHeader: "Như trên",
+    p7LeftSub: "Lời mời gặp gỡ sẵn sàng sử dụng",
     p7InviteText: "Cuộc hẹn của bạn được ấn định vào thứ Sáu. Xem chi tiết.",
-    p7RightHeader: "Mạng xã hội thông thường",
-    p7RightSub: "Lướt vô tận, hỏi dạo và những cuộc hội thoại rơi vào im lặng",
+    p7RightHeader: "Các ứng dụng kết nối khác",
+    p7RightSub: "Lướt màn hình không ngừng và những cuộc trò chuyện xã giao",
     p8Badge1: "ĐÃ XÁC MINH. RIÊNG TƯ.",
     p8Badge2: "AN TOÀN",
-    p8Sec1Title: "Xác thực sinh viên #1",
-    p8Sec1Desc: "100% tài khoản xác minh qua email trường đại học chính chủ",
-    p8Sec2Title: "Riêng tư tuyệt đối #2",
-    p8Sec2Desc: "Chỉ người đồng đội được ghép cặp thành công mới có thể xem hồ sơ của bạn",
-    p8Sec3Title: "Không gian kết nối an toàn #3",
-    p8Sec3Desc: "Gặp gỡ trực tiếp tại các quán cà phê đối tác hoặc campus trường",
+    p8Sec1Title: "An toàn #1",
+    p8Sec1Desc: "Chỉ dành cho sinh viên đã được xác minh tại trường của bạn",
+    p8Sec2Title: "An toàn #2",
+    p8Sec2Desc: "Chỉ người bạn của bạn mới được nhìn thấy bạn",
+    p8Sec3Title: "An toàn #3",
+    p8Sec3Desc: "Gặp gỡ ở quán Coffee và kết nối trong khuôn viên trường của bạn.",
     p9Badge: "CÂU HỎI THƯỜNG GẶP",
     p10Line1: "Bắt cặp không cần lướt dạo",
     p10Line2: "Bắt cặp không cần lướt dạo",
@@ -102,7 +109,6 @@ const TRANSLATIONS = {
     noAccount: "Bạn không có tài khoản?",
     signUp: "Đăng ký",
     
-    // ONBOARDING
     obTitle: "Bước 1: Bạn là ai",
     obSub: "Vui lòng cung cấp thông tin cơ bản của bạn",
     obCvTitle: "Tải CV lên",
@@ -157,7 +163,6 @@ const TRANSLATIONS = {
     obSkip: "Bỏ qua tạm thời",
     obNext: "Tiếp theo",
     
-    // DASHBOARD & MODAL
     dbEco: "Hệ sinh thái ghép đội",
     dbBack: "← Về lại trang chủ",
     dbNavSearch: "Tìm kiếm cuộc thi, sự kiện...",
@@ -191,50 +196,48 @@ const TRANSLATIONS = {
   en: {
     login: "Log In",
     joinNow: "Join Now",
-    noReply: "Adam didn't reply?",
+    noReply: "Jobbod didn't reply?",
     resend: "Resend notification",
     heroTitle1: "Find the right match – Lock in your",
     heroTitle2: "study & project team",
     yourSchool: "@ Your University",
-    meetTime: "Time left until this week's drop",
-    sendMsgBtn: "Message Adam to match team",
+    enrollDeadline: "Enroll before 9/23/2026 for a match",
+    sendMsgBtn: "Message Jobbod to get started",
     terms: "By continuing, you agree to our Terms & Privacy Policy.",
     howItWorksBadge1: "HOW IT",
     howItWorksBadge2: "WORKS",
-    step1Title: "Tell Jobbod about your personality type",
-    step1Desc: "Submit your request before 11:59 PM Friday.",
+    step1Title: "Tell Adam about your working style",
+    step1Desc: "Submit your preferences before 11:59 PM Friday.",
     step2Title: "The Sunday Drop",
-    step2Desc: "Check your email at 7:00 PM. We will send you a personalized compatible teammate and schedule your meetup!",
-    step3Title: "Set the date",
-    step3Desc: "Find a mutual time that fits both schedules to meet up",
-    step4Title: "Good luck!",
-    step4Desc: "Start connecting with like-minded peers on your academic journey!",
+    step2Desc: "Check your email at 7:00 PM Sunday. Receive your complementary teammate match.",
+    step3Title: "Meet at a Cozy Campus Cafe",
+    step3Desc: "Schedule a safe offline meetup at a verified cafe spot near campus.",
+    step4Title: "Start Building!",
+    step4Desc: "Collaborate, compete, and accelerate your academic journey together.",
+    
     companionBadge1: "YOUR PERSONALIZED",
     companionBadge2: "STUDY COMPANION",
-    compCol1Title: "Cognitive Matching Framework",
-    compCol1Sub: "Smart Matchmaker",
-    compCol1Desc: "Optimized through behavioral compatibility models",
-    compCol2Title: "Adam understands your major, technical strengths, and collaboration vibe.",
+    compCol1Title: "Powered by leading-edge AI research",
+    compCol2Title: "Jobbod learns your personal background, major, and career interests.",
     compCol2Scan: "🎯 Skill DNA Scan",
-    compCol3Title: "Pinpoint teammates who balance out your skills and share your target deadlines.",
-    compCol3Sub: "Smart Cross-check",
-    compCol3Desc: "Real-time pool synchronization",
+    compCol3Title: "Scans the entire pool to find the teammate who truly matches you.",
+
     chatAiBtn: "Chat with AI Now",
     p7Badge: "TIRED OF SEARCHING FOR TEAMMATES BY SCROLLING FACEBOOK AND SOCIAL GROUPS?",
     p7SubBadge: "Jobbod is tailor-made for you!",
-    p7LeftHeader: "On Jobbod",
+    p7LeftHeader: "Like above",
     p7LeftSub: "Meetup invitations ready to go",
     p7InviteText: "Your meetup has been scheduled for Friday. View details.",
-    p7RightHeader: "Traditional Social Media",
-    p7RightSub: "Endless scrolling, awkward cold DMs, and ghosted conversations",
+    p7RightHeader: "Other social apps",
+    p7RightSub: "Endless scrolling and small talk that goes nowhere",
     p8Badge1: "VERIFIED. PRIVATE.",
     p8Badge2: "SAFE & SECURE",
-    p8Sec1Title: "Verified Students #1",
-    p8Sec1Desc: "100% institutional email verification (@school.edu)",
-    p8Sec2Title: "Absolute Privacy #2",
-    p8Sec2Desc: "Only your confirmed matched peer can view your contact profile",
-    p8Sec3Title: "Safe Meetup Spaces #3",
-    p8Sec3Desc: "Meet in public campus collaborative areas or partner coffee spots",
+    p8Sec1Title: "Safety #1",
+    p8Sec1Desc: "Only for students verified at your school",
+    p8Sec2Title: "Safety #2",
+    p8Sec2Desc: "Only your matched friend can see you",
+    p8Sec3Title: "Safety #3",
+    p8Sec3Desc: "Meet at a coffee shop and connect within your campus.",
     p9Badge: "FREQUENTLY ASKED QUESTIONS",
     p10Line1: "Matching without mindless scrolling",
     p10Line2: "Matching without mindless scrolling",
@@ -257,7 +260,6 @@ const TRANSLATIONS = {
     noAccount: "Don't have an account?",
     signUp: "Sign Up",
 
-    // ONBOARDING
     obTitle: "Step 1: Who are you",
     obSub: "Please provide your basic information",
     obCvTitle: "Upload CV",
@@ -312,7 +314,6 @@ const TRANSLATIONS = {
     obSkip: "Skip for now",
     obNext: "Next",
 
-    // DASHBOARD & MODAL
     dbEco: "Team matching ecosystem",
     dbBack: "← Back to home",
     dbNavSearch: "Search competitions, hackathons...",
@@ -431,38 +432,6 @@ export default function App() {
   const [isAiModalOpen, setIsAiModalOpen] = useState(false);
   const [openFaqIndex, setOpenFaqIndex] = useState(null);
   const [infoModalType, setInfoModalType] = useState(null);
-
-  const [timeLeft, setTimeLeft] = useState({ hours: 12, minutes: 1, seconds: 20 });
-
-  useEffect(() => {
-    const calculateTimeUntilDrop = () => {
-      const now = new Date();
-      const nextDrop = new Date();
-      const currentDay = now.getDay();
-      const daysUntilSunday = (7 - currentDay) % 7;
-      nextDrop.setDate(now.getDate() + daysUntilSunday);
-      nextDrop.setHours(19, 0, 0, 0);
-
-      if (nextDrop <= now) {
-        nextDrop.setDate(nextDrop.getDate() + 7);
-      }
-
-      const diff = nextDrop - now;
-      const totalHours = Math.floor(diff / (1000 * 60 * 60));
-      const minutes = Math.floor((diff / (1000 * 60)) % 60);
-      const seconds = Math.floor((diff / 1000) % 60);
-
-      setTimeLeft({
-        hours: totalHours,
-        minutes: minutes,
-        seconds: seconds
-      });
-    };
-
-    calculateTimeUntilDrop();
-    const timer = setInterval(calculateTimeUntilDrop, 1000);
-    return () => clearInterval(timer);
-  }, []);
 
   const [dbTab, setDbTab] = useState('all');
   const [selectedSkills, setSelectedSkills] = useState([]);
@@ -673,8 +642,6 @@ export default function App() {
   const removeComp = (idx) => setCompetitions(competitions.filter((_, i) => i !== idx));
   const removeProj = (idx) => setProjects(projects.filter((_, i) => i !== idx));
 
-  const formatTimeNumber = (num) => String(num).padStart(2, '0');
-
   return (
     <div className="min-h-screen font-sans selection:bg-amber-600 selection:text-white">
       
@@ -727,7 +694,7 @@ export default function App() {
                 <span className="underline cursor-pointer hover:text-amber-300 font-semibold">{t.resend}</span>
               </div>
 
-              <h1 className="text-3xl sm:text-5xl md:text-6xl font-serif font-bold text-white tracking-tight leading-snug drop-shadow-[0_2px_12px_rgba(0,0,0,0.7)] max-w-3xl" style={{ fontFamily: "'Playfair Display', serif" }}>
+              <h1 className="text-3xl sm:text-5xl md:text-6xl font-sans font-bold text-white tracking-tight leading-snug drop-shadow-[0_2px_12px_rgba(0,0,0,0.7)] max-w-3xl">
                 {t.heroTitle1} <br />
                 <span className="text-stone-100">{t.heroTitle2}</span>
               </h1>
@@ -737,27 +704,10 @@ export default function App() {
               </div>
 
               <div className="relative flex flex-col items-center gap-3.5 w-full max-w-md">
-                <div className="w-full bg-stone-950/65 backdrop-blur-xl border border-stone-200/15 rounded-3xl p-5 shadow-2xl space-y-2">
-                  <div className="text-[11px] text-stone-300 uppercase tracking-wider font-medium flex items-center justify-center gap-1.5">
-                    <Clock size={12} className="text-amber-400 animate-pulse" />
-                    <span>{t.meetTime}</span>
-                  </div>
-
-                  <div className="flex items-center justify-center gap-3 py-1 font-mono">
-                    <div className="flex flex-col items-center min-w-[54px]">
-                      <span className="text-3xl md:text-4xl font-extrabold text-amber-300 tracking-tight">{formatTimeNumber(timeLeft.hours)}</span>
-                      <span className="text-[9px] uppercase tracking-widest text-stone-400 mt-0.5">Giờ</span>
-                    </div>
-                    <span className="text-2xl text-stone-500 font-light mb-3 animate-pulse">:</span>
-                    <div className="flex flex-col items-center min-w-[54px]">
-                      <span className="text-3xl md:text-4xl font-extrabold text-amber-300 tracking-tight">{formatTimeNumber(timeLeft.minutes)}</span>
-                      <span className="text-[9px] uppercase tracking-widest text-stone-400 mt-0.5">Phút</span>
-                    </div>
-                    <span className="text-2xl text-stone-500 font-light mb-3 animate-pulse">:</span>
-                    <div className="flex flex-col items-center min-w-[54px]">
-                      <span className="text-3xl md:text-4xl font-extrabold text-amber-300 tracking-tight">{formatTimeNumber(timeLeft.seconds)}</span>
-                      <span className="text-[9px] uppercase tracking-widest text-stone-400 mt-0.5">Giây</span>
-                    </div>
+                <div className="w-full bg-stone-950/65 backdrop-blur-xl border border-stone-200/15 rounded-full px-6 py-3.5 shadow-2xl">
+                  <div className="text-[12px] md:text-sm text-stone-100 font-semibold flex items-center justify-center gap-2">
+                    <Clock size={14} className="text-amber-400 flex-shrink-0" />
+                    <span>{t.enrollDeadline}</span>
                   </div>
                 </div>
 
@@ -778,208 +728,97 @@ export default function App() {
             </footer>
           </section>
 
-          {/* SECTION 2: CÁCH CHÚNG TÔI HOẠT ĐỘNG (CHUẨN 100% THEO ẢNH GỐC) */}
-          <section className="relative min-h-screen w-full py-20 px-6 md:px-16 flex flex-col items-center justify-between border-t border-white/10 overflow-hidden">
-            {/* Ảnh nền nhóm sinh viên làm việc nhóm */}
-            <div 
-              className="absolute inset-0 bg-cover bg-center -z-10 pointer-events-none"
-              style={{
-                backgroundImage: `url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=1600&auto=format&fit=crop&q=80')`,
-                filter: 'brightness(0.32) contrast(1.1)'
-              }}
-            />
-            <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-transparent to-black/80 -z-10" />
-
-            {/* Badge Tiêu đề chính giữa: CÁCH CHÚNG TÔI HOẠT ĐỘNG */}
-            <div className="w-full flex justify-center mb-10 z-10">
-              <div className="bg-black/90 border border-white/20 rounded-2xl px-8 py-3 text-center shadow-2xl backdrop-blur-md min-w-[260px]">
-                <span className="block text-xs md:text-sm font-black uppercase tracking-widest text-white">
-                  {t.howItWorksBadge1}
-                </span>
-                <span className="block text-xl md:text-2xl font-black tracking-wider text-[#3B82F6] mt-0.5 uppercase">
-                  {t.howItWorksBadge2}
-                </span>
+          {/* SECTION 2: CÁCH CHÚNG TÔI HOẠT ĐỘNG */}
+          <section className="relative min-h-screen w-full py-24 px-6 flex flex-col items-center justify-center border-t border-white/10">
+            <div className="mb-14 text-center">
+              <div className="inline-block bg-stone-950/75 border border-stone-200/15 rounded-2xl px-8 py-3 shadow-xl backdrop-blur-xl">
+                <span className="block text-xs md:text-sm font-extrabold uppercase tracking-widest text-stone-300">{t.howItWorksBadge1}</span>
+                <span className="block text-lg md:text-xl font-black tracking-wider text-amber-300">{t.howItWorksBadge2}</span>
               </div>
             </div>
 
-            {/* 4 Bước dạng nổi trên nền ảnh gốc */}
-            <div className="max-w-6xl w-full grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-12 z-10 my-auto text-white">
+            <div className="max-w-4xl w-full grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div className="bg-stone-950/70 backdrop-blur-xl border border-white/10 rounded-3xl p-6 shadow-xl space-y-3">
+                <div className="flex items-start gap-3">
+                  <span className="w-6 h-6 rounded-full bg-amber-400 text-stone-900 font-bold text-xs flex items-center justify-center flex-shrink-0 mt-0.5 shadow-md">1</span>
+                  <h3 className="font-bold text-base md:text-lg text-white leading-snug">{t.step1Title}</h3>
+                </div>
+                <p className="text-xs text-stone-300 pl-9 leading-relaxed">{t.step1Desc}</p>
+                <div className="pl-9 pt-1">
+                  <div className="inline-flex items-center gap-2 bg-stone-900/60 p-2.5 rounded-2xl border border-white/10">
+                    <span className="text-lg">🎙️</span><span className="text-lg">👩‍💻</span><span className="text-lg">🎨</span><span className="text-lg">📊</span>
+                    <span className="text-[11px] font-bold text-amber-300 ml-1 bg-white/5 px-2 py-1 rounded-lg">Adam AI</span>
+                  </div>
+                </div>
+              </div>
               
-              {/* BƯỚC 1: Hãy cho Jobbod biết bạn thuộc nhóm tính cách nào? */}
-              <div className="flex flex-col space-y-3 max-w-lg">
-                <div className="flex items-center gap-3">
-                  <span className="w-7 h-7 rounded-full bg-[#EA580C] text-white font-extrabold text-sm flex items-center justify-center flex-shrink-0 shadow-md">
-                    1
-                  </span>
-                  <h3 className="text-base md:text-lg font-bold text-white tracking-wide">
-                    {t.step1Title}
-                  </h3>
+              <div className="bg-stone-950/70 backdrop-blur-xl border border-white/10 rounded-3xl p-6 shadow-xl space-y-3">
+                <div className="flex items-start gap-3">
+                  <span className="w-6 h-6 rounded-full bg-amber-400 text-stone-900 font-bold text-xs flex items-center justify-center flex-shrink-0 mt-0.5 shadow-md">2</span>
+                  <h3 className="font-bold text-base md:text-lg text-white leading-snug">{t.step2Title}</h3>
                 </div>
-                <p className="text-xs text-stone-200 pl-10 leading-relaxed font-normal">
-                  {t.step1Desc}
-                </p>
-
-                {/* Minh họa: Sticker CV icon bar + Mockup điện thoại */}
-                <div className="pl-10 pt-2 flex items-center gap-3">
-                  <div className="bg-[#2563EB] rounded-2xl p-1.5 px-3 flex items-center gap-2 shadow-xl border border-blue-400/40">
-                    <span className="bg-white text-blue-800 text-[10px] font-black px-1.5 py-0.5 rounded shadow">
-                      📄 CV
-                    </span>
-                    <span className="text-base">👩‍💼</span>
-                    <span className="text-base">👨‍💻</span>
-                    <span className="bg-[#84CC16] text-black text-[10px] font-black px-1.5 py-0.5 rounded shadow tracking-tighter">
-                      JOB
-                    </span>
+                <p className="text-xs text-stone-300 pl-9 leading-relaxed">{t.step2Desc}</p>
+                <div className="pl-9 pt-1 grid grid-cols-4 gap-2.5">
+                  <div className="rounded-xl overflow-hidden border border-white/15 bg-stone-900/60 p-1 text-center shadow">
+                    <div className="w-full h-14 rounded-lg overflow-hidden bg-stone-800">
+                      <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=200&auto=format&fit=crop&q=80" alt="Nam" className="w-full h-full object-cover object-top" />
+                    </div>
+                    <span className="text-[10px] font-semibold text-stone-200 block mt-1">Nam</span>
                   </div>
-
-                  <div className="w-14 h-24 bg-black rounded-2xl border-2 border-stone-600 p-1 relative shadow-2xl overflow-hidden flex flex-col justify-end">
-                    <div className="absolute top-1 left-1/2 transform -translate-x-1/2 w-4 h-1 bg-stone-700 rounded-full" />
-                    <img 
-                      src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=200&auto=format&fit=crop&q=80" 
-                      alt="Candidate phone screen" 
-                      className="w-full h-20 object-cover rounded-xl grayscale contrast-125"
-                    />
+                  <div className="rounded-xl overflow-hidden border border-white/15 bg-stone-900/60 p-1 text-center shadow">
+                    <div className="w-full h-14 rounded-lg overflow-hidden bg-stone-800">
+                      <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=200&auto=format&fit=crop&q=80" alt="An" className="w-full h-full object-cover object-top" />
+                    </div>
+                    <span className="text-[10px] font-semibold text-stone-200 block mt-1">An</span>
+                  </div>
+                  <div className="rounded-xl overflow-hidden border border-white/15 bg-stone-900/60 p-1 text-center shadow">
+                    <div className="w-full h-14 rounded-lg overflow-hidden bg-stone-800">
+                      <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=200&auto=format&fit=crop&q=80" alt="John" className="w-full h-full object-cover object-top" />
+                    </div>
+                    <span className="text-[10px] font-semibold text-stone-200 block mt-1">John</span>
+                  </div>
+                  <div className="rounded-xl overflow-hidden border border-white/15 bg-stone-900/60 p-1 text-center shadow">
+                    <div className="w-full h-14 rounded-lg overflow-hidden bg-stone-800">
+                      <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=200&auto=format&fit=crop&q=80" alt="Nga" className="w-full h-full object-cover object-top" />
+                    </div>
+                    <span className="text-[10px] font-semibold text-stone-200 block mt-1">Nga</span>
                   </div>
                 </div>
               </div>
 
-              {/* BƯỚC 2: The Sunday Drop */}
-              <div className="flex flex-col space-y-3 max-w-lg">
-                <div className="flex items-center gap-3">
-                  <span className="w-7 h-7 rounded-full bg-[#EA580C] text-white font-extrabold text-sm flex items-center justify-center flex-shrink-0 shadow-md">
-                    2
-                  </span>
-                  <h3 className="text-base md:text-lg font-bold text-white tracking-wide">
-                    {t.step2Title}
-                  </h3>
+              <div className="bg-stone-950/70 backdrop-blur-xl border border-white/10 rounded-3xl p-6 shadow-xl space-y-3">
+                <div className="flex items-start gap-3">
+                  <span className="w-6 h-6 rounded-full bg-amber-400 text-stone-900 font-bold text-xs flex items-center justify-center flex-shrink-0 mt-0.5 shadow-md">3</span>
+                  <h3 className="font-bold text-base md:text-lg text-white leading-snug">{t.step3Title}</h3>
                 </div>
-                <p className="text-xs text-stone-200 pl-10 leading-relaxed font-normal">
-                  {t.step2Desc}
-                </p>
-
-                {/* Minh họa: 4 Thẻ thành viên pastel Nam, An, John, Nga */}
-                <div className="pl-10 pt-2">
-                  <div className="inline-flex rounded-xl overflow-hidden shadow-2xl border-2 border-white/60 bg-white">
-                    <div className="w-16 bg-[#FEF08A] flex flex-col items-center p-1 border-r border-stone-300">
-                      <img 
-                        src="https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?w=200&auto=format&fit=crop&q=80" 
-                        alt="Nam" 
-                        className="w-14 h-16 object-cover rounded" 
-                      />
-                      <span className="text-[11px] font-bold text-stone-900 mt-1">Nam</span>
+                <p className="text-xs text-stone-300 pl-9 leading-relaxed">{t.step3Desc}</p>
+                <div className="pl-9 pt-1">
+                  <div className="bg-stone-900/80 border border-white/10 p-3 rounded-2xl w-40 text-center shadow">
+                    <div className="text-[10px] font-bold text-amber-300 tracking-wider uppercase mb-1">Tháng 9, 2026</div>
+                    <div className="flex justify-around text-[10px] text-stone-400 font-mono">
+                      <span>T6</span><span className="text-amber-300 font-bold">T7</span><span className="text-amber-400 font-bold underline">CN</span>
                     </div>
-
-                    <div className="w-16 bg-[#DDD6FE] flex flex-col items-center p-1 border-r border-stone-300">
-                      <img 
-                        src="https://images.unsplash.com/photo-1517841905240-472988babdf9?w=200&auto=format&fit=crop&q=80" 
-                        alt="An" 
-                        className="w-14 h-16 object-cover rounded" 
-                      />
-                      <span className="text-[11px] font-bold text-stone-900 mt-1">An</span>
-                    </div>
-
-                    <div className="w-16 bg-[#BBF7D0] flex flex-col items-center p-1 border-r border-stone-300">
-                      <img 
-                        src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&auto=format&fit=crop&q=80" 
-                        alt="John" 
-                        className="w-14 h-16 object-cover rounded" 
-                      />
-                      <span className="text-[11px] font-bold text-stone-900 mt-1">John</span>
-                    </div>
-
-                    <div className="w-16 bg-[#FBCFE8] flex flex-col items-center p-1">
-                      <img 
-                        src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=200&auto=format&fit=crop&q=80" 
-                        alt="Nga" 
-                        className="w-14 h-16 object-cover rounded" 
-                      />
-                      <span className="text-[11px] font-bold text-stone-900 mt-1">Nga</span>
-                    </div>
+                    <div className="text-[11px] text-stone-200 mt-1 font-semibold">19:00 Khởi hành</div>
                   </div>
                 </div>
               </div>
 
-              {/* BƯỚC 3: Lên lịch ngày (Cuốn lịch để bàn) */}
-              <div className="flex flex-col space-y-3 max-w-lg">
-                <div className="flex items-center gap-3">
-                  <span className="w-7 h-7 rounded-full bg-[#EA580C] text-white font-extrabold text-sm flex items-center justify-center flex-shrink-0 shadow-md">
-                    3
-                  </span>
-                  <h3 className="text-xl md:text-2xl font-serif font-bold text-white tracking-wide" style={{ fontFamily: "'Playfair Display', serif" }}>
-                    {t.step3Title}
-                  </h3>
+              <div className="bg-stone-950/70 backdrop-blur-xl border border-white/10 rounded-3xl p-6 shadow-xl space-y-3">
+                <div className="flex items-start gap-3">
+                  <span className="w-6 h-6 rounded-full bg-amber-400 text-stone-900 font-bold text-xs flex items-center justify-center flex-shrink-0 mt-0.5 shadow-md">4</span>
+                  <h3 className="font-bold text-base md:text-lg text-white leading-snug">{t.step4Title}</h3>
                 </div>
-                <p className="text-xs text-stone-200 pl-10 leading-relaxed font-normal">
-                  {t.step3Desc}
-                </p>
-
-                {/* Minh họa: Cuốn lịch để bàn Desk Calendar nghiêng 3D */}
-                <div className="pl-10 pt-2">
-                  <div className="w-48 bg-[#FFFDF9] text-stone-900 rounded-xl p-3 shadow-2xl border-2 border-amber-500/80 relative font-sans transform -rotate-2 hover:rotate-0 transition-transform">
-                    <div className="absolute -top-2 inset-x-0 flex justify-around px-3">
-                      {[...Array(7)].map((_, i) => (
-                        <span key={i} className="w-1.5 h-3 bg-stone-700 rounded-full border border-stone-900 shadow-sm" />
-                      ))}
-                    </div>
-
-                    <div className="bg-[#EA580C] text-white rounded-md px-2 py-1 flex items-center justify-between mt-1 shadow-inner">
-                      <span className="text-[10px] font-black uppercase tracking-wider">NOVEMBER</span>
-                      <span className="text-[10px] font-mono font-bold">2025</span>
-                    </div>
-
-                    <div className="grid grid-cols-7 gap-0.5 text-[8px] font-bold text-stone-400 text-center mt-2 border-b border-stone-200 pb-1">
-                      <span>SUN</span><span>MON</span><span>TUE</span><span>WED</span><span>THU</span><span>FRI</span><span>SAT</span>
-                    </div>
-
-                    <div className="grid grid-cols-7 gap-0.5 text-[8.5px] font-semibold text-center mt-1.5 text-stone-800">
-                      <span className="opacity-0">1</span>
-                      <span className="opacity-0">1</span>
-                      <span className="opacity-0">1</span>
-                      <span>1</span><span>2</span><span>3</span><span>4</span>
-                      <span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>10</span>
-                      <span className="border border-[#EA580C] text-[#EA580C] rounded-full w-4 h-4 flex items-center justify-center mx-auto font-black">11</span>
-                      <span>12</span>
-                      <span className="border border-blue-600 text-blue-700 rounded-full w-4 h-4 flex items-center justify-center mx-auto font-black">13</span>
-                      <span className="bg-[#EA580C] text-white rounded-full w-4 h-4 flex items-center justify-center mx-auto font-black shadow-sm">14</span>
-                      <span className="border border-emerald-600 text-emerald-700 rounded-full w-4 h-4 flex items-center justify-center mx-auto font-black">15</span>
-                      <span className="border border-amber-600 text-amber-700 rounded-full w-4 h-4 flex items-center justify-center mx-auto font-black">16</span>
-                      <span>17</span><span>18</span><span>19</span><span>20</span><span>21</span><span>22</span><span>23</span>
-                      <span>24</span><span>25</span><span>26</span><span>27</span><span>28</span><span>29</span><span>30</span>
-                    </div>
+                <p className="text-xs text-stone-300 pl-9 leading-relaxed">{t.step4Desc}</p>
+                <div className="pl-9 pt-1">
+                  <div className="w-full h-24 rounded-2xl overflow-hidden border border-white/10">
+                    <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=500&auto=format&fit=crop&q=80" alt="Student Group" className="w-full h-full object-cover" />
                   </div>
                 </div>
               </div>
-
-              {/* BƯỚC 4: Good luck! */}
-              <div className="flex flex-col space-y-3 max-w-lg">
-                <div className="flex items-center gap-3">
-                  <span className="w-7 h-7 rounded-full bg-[#EA580C] text-white font-extrabold text-sm flex items-center justify-center flex-shrink-0 shadow-md">
-                    4
-                  </span>
-                  <h3 className="text-xl md:text-2xl font-serif font-bold text-white tracking-wide" style={{ fontFamily: "'Playfair Display', serif" }}>
-                    {t.step4Title}
-                  </h3>
-                </div>
-                <p className="text-xs text-stone-200 pl-10 leading-relaxed font-normal">
-                  {t.step4Desc}
-                </p>
-
-                {/* Minh họa: Ảnh 2 bạn sinh viên ôm sách đứng trước campus */}
-                <div className="pl-10 pt-2">
-                  <div className="w-52 h-32 rounded-2xl overflow-hidden border-2 border-white shadow-2xl bg-stone-900">
-                    <img 
-                      src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=500&auto=format&fit=crop&q=80" 
-                      alt="Two students meeting" 
-                      className="w-full h-full object-cover object-top hover:scale-105 transition-transform duration-500"
-                    />
-                  </div>
-                </div>
-              </div>
-
             </div>
           </section>
 
-          {/* SECTION 3: BẠN ĐỒNG HÀNH CÁ NHÂN HÓA */}
+          {/* SECTION 3: BẠN ĐỒNG HÀNH CÁ NHÂN HÓA - ĐÃ SỬA LẠI NỘI DUNG CHUẨN ẢNH MẪU */}
           <section className="relative min-h-screen w-full py-24 px-6 flex flex-col items-center justify-center border-t border-white/10">
             <div className="mb-14 text-center">
               <div className="inline-block bg-stone-950/75 border border-stone-200/15 rounded-2xl px-8 py-3 shadow-xl backdrop-blur-xl">
@@ -988,31 +827,23 @@ export default function App() {
               </div>
             </div>
 
-            <div className="max-w-5xl w-full grid grid-cols-1 md:grid-cols-3 gap-6 items-center text-center">
-              <div className="bg-stone-950/70 backdrop-blur-xl border border-white/10 rounded-3xl p-6 shadow-xl space-y-4 flex flex-col items-center">
-                <div className="w-12 h-12 rounded-2xl bg-amber-400/15 text-amber-300 flex items-center justify-center">
-                  <BookOpen size={24} />
-                </div>
-                <h4 className="font-bold text-sm text-white">{t.compCol1Title}</h4>
-                <p className="text-xs text-stone-300 leading-relaxed">{t.compCol1Desc}</p>
+            <div className="max-w-5xl w-full grid grid-cols-1 md:grid-cols-3 gap-8 items-start text-center">
+              {/* CỘT 1: Nghiên cứu AI - ảnh 2 bìa sách */}
+              <div className="flex flex-col items-center gap-4">
+                <h4 className="font-bold text-sm text-white drop-shadow-[0_2px_6px_rgba(0,0,0,0.8)] max-w-[220px]">{t.compCol1Title}</h4>
+                <img src={researchBooksImage} alt="Nghiên cứu AI" className="max-h-32 w-auto object-contain drop-shadow-2xl" />
               </div>
 
-              <div className="bg-stone-950/85 backdrop-blur-xl border-2 border-amber-400/30 rounded-3xl p-6 shadow-2xl space-y-4 flex flex-col items-center">
-                <div className="w-44 h-48 rounded-2xl overflow-hidden relative border border-white/10">
-                  <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?w=500&auto=format&fit=crop&q=80" alt="Matching Companion" className="w-full h-full object-cover" />
-                  <span className="absolute bottom-2 inset-x-2 bg-stone-950/80 backdrop-blur-md text-[10px] text-amber-300 font-bold py-1 rounded-lg border border-white/10">
-                    {t.compCol2Scan}
-                  </span>
-                </div>
-                <h4 className="font-bold text-sm text-white">{t.compCol2Title}</h4>
+              {/* CỘT 2: Ảnh chân dung có khung góc xanh + icon bù trừ kỹ năng */}
+              <div className="flex flex-col items-center gap-4">
+                <h4 className="font-bold text-sm text-white drop-shadow-[0_2px_6px_rgba(0,0,0,0.8)] max-w-[240px]">{t.compCol2Title}</h4>
+                <img src={skillFrameImage} alt="Quét DNA kỹ năng" className="max-h-44 w-auto object-contain" />
               </div>
 
-              <div className="bg-stone-950/70 backdrop-blur-xl border border-white/10 rounded-3xl p-6 shadow-xl space-y-4 flex flex-col items-center">
-                <div className="w-12 h-12 rounded-2xl bg-emerald-400/15 text-emerald-300 flex items-center justify-center">
-                  <Laptop size={24} />
-                </div>
-                <h4 className="font-bold text-sm text-white">{t.compCol3Title}</h4>
-                <p className="text-xs text-stone-300 leading-relaxed">{t.compCol3Desc}</p>
+              {/* CỘT 3: Màn hình quét kiểu retro TV */}
+              <div className="flex flex-col items-center gap-4">
+                <h4 className="font-bold text-sm text-white drop-shadow-[0_2px_6px_rgba(0,0,0,0.8)] max-w-[220px]">{t.compCol3Title}</h4>
+                <img src={crtScanImage} alt="Quét toàn bộ nhóm" className="max-h-32 w-auto object-contain drop-shadow-2xl" />
               </div>
             </div>
 
@@ -1027,41 +858,47 @@ export default function App() {
           </section>
 
           {/* SECTION 4: SO SÁNH JOBBOD VỚI MXH */}
-          <section className="relative min-h-screen w-full py-24 px-6 flex flex-col items-center justify-center border-t border-white/10">
-            <div className="mb-12 text-center max-w-2xl">
-              <div className="bg-stone-950/75 border border-stone-200/15 rounded-2xl px-6 py-3 shadow-xl backdrop-blur-xl inline-block">
-                <h2 className="text-xs md:text-sm font-extrabold uppercase tracking-wide text-white">{t.p7Badge}</h2>
-              </div>
-              <div className="mt-2.5">
-                <span className="text-sm font-semibold text-amber-300">{t.p7SubBadge}</span>
-              </div>
-            </div>
-
-            <div className="max-w-4xl w-full grid grid-cols-1 md:grid-cols-2 gap-6 items-stretch">
-              <div className="bg-stone-950/75 backdrop-blur-xl border border-amber-400/25 rounded-3xl p-6 shadow-xl flex flex-col justify-between space-y-4">
-                <div>
-                  <h3 className="text-base font-bold text-amber-300">{t.p7LeftHeader}</h3>
-                  <p className="text-xs text-stone-300 mt-0.5">{t.p7LeftSub}</p>
-                </div>
-                <div className="bg-stone-900/80 rounded-2xl p-4 border border-white/10 flex items-center gap-3">
-                  <div className="w-9 h-9 rounded-xl bg-amber-400 text-stone-900 font-bold flex items-center justify-center flex-shrink-0">
-                    A
-                  </div>
-                  <div>
-                    <div className="text-xs font-bold text-white">Adam Matchmaker</div>
-                    <div className="text-[11px] text-stone-300 leading-tight">{t.p7InviteText}</div>
-                  </div>
+          <section className="relative min-h-screen w-full overflow-hidden border-t border-white/10 flex items-center">
+            <div className="relative z-10 max-w-4xl w-full mx-auto px-6 py-24 flex flex-col items-center">
+              <div className="mb-6 text-center max-w-2xl">
+                <div className="inline-block bg-stone-950/85 border-2 border-white/70 rounded-2xl px-6 py-4 shadow-xl">
+                  <h2 className="text-sm md:text-base font-extrabold uppercase tracking-wide text-white leading-snug">{t.p7Badge}</h2>
                 </div>
               </div>
 
-              <div className="bg-stone-950/75 backdrop-blur-xl border border-white/10 rounded-3xl p-6 shadow-xl flex flex-col justify-between space-y-4">
-                <div>
-                  <h3 className="text-base font-bold text-stone-300">{t.p7RightHeader}</h3>
-                  <p className="text-xs text-stone-400 mt-0.5">{t.p7RightSub}</p>
+              <div className="mb-14">
+                <div className="inline-block bg-stone-950/85 border-2 border-white/70 rounded-2xl px-6 py-2.5 shadow-xl">
+                  <span className="text-sm md:text-base font-bold text-blue-400">{t.p7SubBadge}</span>
                 </div>
-                <div className="bg-stone-900/60 rounded-2xl p-4 border border-white/5 flex items-center justify-around">
-                  <span className="text-xs text-stone-400 italic">"Ai rảnh làm đồ án chung không?"</span>
-                  <span className="text-[10px] bg-rose-500/20 text-rose-300 border border-rose-500/30 px-2 py-0.5 rounded-full font-bold">Chưa có hồi âm</span>
+              </div>
+
+              <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-8 mb-8 text-center">
+                <div>
+                  <h3 className="text-lg font-bold text-white drop-shadow-[0_2px_6px_rgba(0,0,0,0.9)]">{t.p7LeftHeader}</h3>
+                  <p className="text-sm text-stone-100 mt-1 drop-shadow-[0_2px_6px_rgba(0,0,0,0.9)]">{t.p7LeftSub}</p>
+                </div>
+                <div>
+                  <h3 className="text-lg font-bold text-white drop-shadow-[0_2px_6px_rgba(0,0,0,0.9)]">{t.p7RightHeader}</h3>
+                  <p className="text-sm text-stone-100 mt-1 drop-shadow-[0_2px_6px_rgba(0,0,0,0.9)]">{t.p7RightSub}</p>
+                </div>
+              </div>
+
+              <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-10 items-start">
+                <div className="flex flex-col items-center gap-3">
+                  <span className="inline-flex items-center gap-1.5 bg-stone-950/85 border border-white/20 rounded-full px-3 py-1 text-[11px] font-bold text-emerald-300 shadow-md">
+                    <Mail size={13} /> Gửi qua Email
+                  </span>
+                  <div className="rounded-2xl overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.55)] max-w-sm w-full transition-transform duration-300 hover:scale-[1.03]">
+                    <img src={jobbodNotificationImage} alt="Thông báo Jobbod gửi qua Email" className="w-full h-auto object-contain" />
+                  </div>
+                </div>
+                <div className="flex flex-col items-center gap-3">
+                  <span className="inline-flex items-center gap-1.5 bg-stone-950/85 border border-white/20 rounded-full px-3 py-1 text-[11px] font-bold text-sky-300 shadow-md">
+                    <Bell size={13} /> Thông báo mạng xã hội
+                  </span>
+                  <div className="rounded-2xl overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.55)] ring-2 ring-white/10 max-w-sm w-full transition-transform duration-300 hover:scale-[1.03]">
+                    <img src={socialIconsCardImage} alt="Thông báo mạng xã hội" className="w-full h-auto object-contain" />
+                  </div>
                 </div>
               </div>
             </div>
@@ -1070,36 +907,30 @@ export default function App() {
           {/* SECTION 5: AN TOÀN & XÁC THỰC */}
           <section className="relative min-h-screen w-full py-24 px-6 flex flex-col items-center justify-center border-t border-white/10">
             <div className="mb-14 text-center">
-              <div className="inline-block bg-stone-950/75 border border-stone-200/15 rounded-2xl px-8 py-3 shadow-xl backdrop-blur-xl">
+              <div className="inline-block bg-stone-950/85 border-2 border-indigo-400/60 rounded-2xl px-8 py-3.5 shadow-xl">
                 <span className="text-sm md:text-base font-black tracking-wide text-white uppercase">
-                  {t.p8Badge1} <span className="text-amber-300">{t.p8Badge2}</span>
+                  {t.p8Badge1} <span className="text-blue-400">{t.p8Badge2}</span>
                 </span>
               </div>
             </div>
 
-            <div className="max-w-5xl w-full grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
-              <div className="bg-stone-950/70 backdrop-blur-xl border border-white/10 rounded-3xl p-6 shadow-xl space-y-3 flex flex-col items-center">
-                <div className="w-12 h-12 rounded-2xl bg-amber-400/15 text-amber-300 flex items-center justify-center">
-                  <UserCheck size={24} />
-                </div>
+            <div className="max-w-5xl w-full grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+              <div className="flex flex-col items-center gap-3">
+                <img src={studentVerifiedImage} alt="Student Verified" className="w-28 h-28 object-contain drop-shadow-xl" />
                 <h4 className="font-bold text-sm text-white">{t.p8Sec1Title}</h4>
-                <p className="text-xs text-stone-300 leading-relaxed">{t.p8Sec1Desc}</p>
+                <p className="text-xs text-stone-300 leading-relaxed max-w-[220px]">{t.p8Sec1Desc}</p>
               </div>
 
-              <div className="bg-stone-950/70 backdrop-blur-xl border border-white/10 rounded-3xl p-6 shadow-xl space-y-3 flex flex-col items-center">
-                <div className="w-12 h-12 rounded-2xl bg-amber-400/15 text-amber-300 flex items-center justify-center">
-                  <ShieldCheck size={24} />
-                </div>
+              <div className="flex flex-col items-center gap-3">
+                <img src={campusFriendsImage} alt="Bạn đồng hành trong khuôn viên trường" className="w-32 h-32 object-cover rounded-2xl shadow-xl border border-white/10" />
                 <h4 className="font-bold text-sm text-white">{t.p8Sec2Title}</h4>
-                <p className="text-xs text-stone-300 leading-relaxed">{t.p8Sec2Desc}</p>
+                <p className="text-xs text-stone-300 leading-relaxed max-w-[220px]">{t.p8Sec2Desc}</p>
               </div>
 
-              <div className="bg-stone-950/70 backdrop-blur-xl border border-white/10 rounded-3xl p-6 shadow-xl space-y-3 flex flex-col items-center">
-                <div className="w-12 h-12 rounded-2xl bg-amber-400/15 text-amber-300 flex items-center justify-center">
-                  <Coffee size={24} />
-                </div>
+              <div className="flex flex-col items-center gap-3">
+                <img src={campusIllustrationImage} alt="Khuôn viên trường" className="w-32 h-32 object-contain rounded-2xl shadow-xl" />
                 <h4 className="font-bold text-sm text-white">{t.p8Sec3Title}</h4>
-                <p className="text-xs text-stone-300 leading-relaxed">{t.p8Sec3Desc}</p>
+                <p className="text-xs text-stone-300 leading-relaxed max-w-[220px]">{t.p8Sec3Desc}</p>
               </div>
             </div>
           </section>
