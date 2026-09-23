@@ -1,4 +1,4 @@
-import bgImage from './assets/background.png';
+import bgImage from './assets/background.jpg';
 import crtScanImage from './assets/crt-scan.png';
 import researchBooksImage from './assets/research-books.png';
 import skillFrameImage from './assets/skill-frame.png';
@@ -7,6 +7,10 @@ import socialIconsCardImage from './assets/social-icons-card.png';
 import studentVerifiedImage from './assets/student-verified.png';
 import campusFriendsImage from './assets/campus-friends.png';
 import campusIllustrationImage from './assets/campus-illustration.png';
+import onboardingChatImage from './assets/onboarding-chat.png';
+import scheduleCalendarImage from './assets/schedule-calendar.png';
+import matchCandidatesImage from './assets/match-candidates.png';
+import matchedFriendsImage from './assets/matched-friends.png';
 import { useState, useEffect, useRef } from 'react';
 import { 
   Sparkles, Send, Bot, MapPin, Search, Users, Clock, 
@@ -694,9 +698,8 @@ export default function App() {
                 <span className="underline cursor-pointer hover:text-amber-300 font-semibold">{t.resend}</span>
               </div>
 
-              <h1 className="text-3xl sm:text-5xl md:text-6xl font-sans font-bold text-white tracking-tight leading-snug drop-shadow-[0_2px_12px_rgba(0,0,0,0.7)] max-w-3xl">
-                {t.heroTitle1} <br />
-                <span className="text-stone-100">{t.heroTitle2}</span>
+              <h1 className="text-xl sm:text-3xl md:text-4xl lg:text-5xl font-sans font-bold text-white tracking-tight leading-snug drop-shadow-[0_2px_12px_rgba(0,0,0,0.7)] max-w-6xl text-balance md:whitespace-nowrap">
+                {t.heroTitle1} <span className="text-stone-100">{t.heroTitle2}</span>
               </h1>
 
               <div className="mt-3 mb-5 inline-flex items-center gap-1.5 px-4 py-1 rounded-full bg-stone-900/60 backdrop-blur-md text-amber-300 text-xs font-semibold border border-amber-400/25 shadow-sm">
@@ -737,82 +740,48 @@ export default function App() {
               </div>
             </div>
 
-            <div className="max-w-4xl w-full grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div className="bg-stone-950/70 backdrop-blur-xl border border-white/10 rounded-3xl p-6 shadow-xl space-y-3">
+            <div className="max-w-4xl w-full grid grid-cols-1 md:grid-cols-2 gap-10">
+              <div className="space-y-3">
                 <div className="flex items-start gap-3">
                   <span className="w-6 h-6 rounded-full bg-amber-400 text-stone-900 font-bold text-xs flex items-center justify-center flex-shrink-0 mt-0.5 shadow-md">1</span>
-                  <h3 className="font-bold text-base md:text-lg text-white leading-snug">{t.step1Title}</h3>
+                  <h3 className="font-bold text-base md:text-lg text-white leading-snug drop-shadow-[0_2px_6px_rgba(0,0,0,0.8)]">{t.step1Title}</h3>
                 </div>
-                <p className="text-xs text-stone-300 pl-9 leading-relaxed">{t.step1Desc}</p>
+                <p className="text-xs text-stone-200 pl-9 leading-relaxed drop-shadow-[0_2px_6px_rgba(0,0,0,0.8)]">{t.step1Desc}</p>
                 <div className="pl-9 pt-1">
-                  <div className="inline-flex items-center gap-2 bg-stone-900/60 p-2.5 rounded-2xl border border-white/10">
-                    <span className="text-lg">🎙️</span><span className="text-lg">👩‍💻</span><span className="text-lg">🎨</span><span className="text-lg">📊</span>
-                    <span className="text-[11px] font-bold text-amber-300 ml-1 bg-white/5 px-2 py-1 rounded-lg">Adam AI</span>
-                  </div>
+                  <img src={onboardingChatImage} alt="Trò chuyện onboarding với Adam AI" className="w-full max-w-[280px] h-auto object-contain drop-shadow-2xl transition-transform duration-300 ease-out hover:scale-110 hover:-rotate-2 cursor-pointer" />
                 </div>
               </div>
-              
-              <div className="bg-stone-950/70 backdrop-blur-xl border border-white/10 rounded-3xl p-6 shadow-xl space-y-3">
+
+              <div className="space-y-3">
                 <div className="flex items-start gap-3">
                   <span className="w-6 h-6 rounded-full bg-amber-400 text-stone-900 font-bold text-xs flex items-center justify-center flex-shrink-0 mt-0.5 shadow-md">2</span>
-                  <h3 className="font-bold text-base md:text-lg text-white leading-snug">{t.step2Title}</h3>
+                  <h3 className="font-bold text-base md:text-lg text-white leading-snug drop-shadow-[0_2px_6px_rgba(0,0,0,0.8)]">{t.step2Title}</h3>
                 </div>
-                <p className="text-xs text-stone-300 pl-9 leading-relaxed">{t.step2Desc}</p>
-                <div className="pl-9 pt-1 grid grid-cols-4 gap-2.5">
-                  <div className="rounded-xl overflow-hidden border border-white/15 bg-stone-900/60 p-1 text-center shadow">
-                    <div className="w-full h-14 rounded-lg overflow-hidden bg-stone-800">
-                      <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=200&auto=format&fit=crop&q=80" alt="Nam" className="w-full h-full object-cover object-top" />
-                    </div>
-                    <span className="text-[10px] font-semibold text-stone-200 block mt-1">Nam</span>
-                  </div>
-                  <div className="rounded-xl overflow-hidden border border-white/15 bg-stone-900/60 p-1 text-center shadow">
-                    <div className="w-full h-14 rounded-lg overflow-hidden bg-stone-800">
-                      <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=200&auto=format&fit=crop&q=80" alt="An" className="w-full h-full object-cover object-top" />
-                    </div>
-                    <span className="text-[10px] font-semibold text-stone-200 block mt-1">An</span>
-                  </div>
-                  <div className="rounded-xl overflow-hidden border border-white/15 bg-stone-900/60 p-1 text-center shadow">
-                    <div className="w-full h-14 rounded-lg overflow-hidden bg-stone-800">
-                      <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=200&auto=format&fit=crop&q=80" alt="John" className="w-full h-full object-cover object-top" />
-                    </div>
-                    <span className="text-[10px] font-semibold text-stone-200 block mt-1">John</span>
-                  </div>
-                  <div className="rounded-xl overflow-hidden border border-white/15 bg-stone-900/60 p-1 text-center shadow">
-                    <div className="w-full h-14 rounded-lg overflow-hidden bg-stone-800">
-                      <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=200&auto=format&fit=crop&q=80" alt="Nga" className="w-full h-full object-cover object-top" />
-                    </div>
-                    <span className="text-[10px] font-semibold text-stone-200 block mt-1">Nga</span>
-                  </div>
+                <p className="text-xs text-stone-200 pl-9 leading-relaxed drop-shadow-[0_2px_6px_rgba(0,0,0,0.8)]">{t.step2Desc}</p>
+                <div className="pl-9 pt-1">
+                  <img src={matchCandidatesImage} alt="Gợi ý đồng đội: Nam, An, John, Nga" className="w-full max-w-[320px] h-auto object-contain drop-shadow-2xl transition-transform duration-300 ease-out hover:scale-110 hover:rotate-1 cursor-pointer" />
                 </div>
               </div>
 
-              <div className="bg-stone-950/70 backdrop-blur-xl border border-white/10 rounded-3xl p-6 shadow-xl space-y-3">
+              <div className="space-y-3">
                 <div className="flex items-start gap-3">
                   <span className="w-6 h-6 rounded-full bg-amber-400 text-stone-900 font-bold text-xs flex items-center justify-center flex-shrink-0 mt-0.5 shadow-md">3</span>
-                  <h3 className="font-bold text-base md:text-lg text-white leading-snug">{t.step3Title}</h3>
+                  <h3 className="font-bold text-base md:text-lg text-white leading-snug drop-shadow-[0_2px_6px_rgba(0,0,0,0.8)]">{t.step3Title}</h3>
                 </div>
-                <p className="text-xs text-stone-300 pl-9 leading-relaxed">{t.step3Desc}</p>
+                <p className="text-xs text-stone-200 pl-9 leading-relaxed drop-shadow-[0_2px_6px_rgba(0,0,0,0.8)]">{t.step3Desc}</p>
                 <div className="pl-9 pt-1">
-                  <div className="bg-stone-900/80 border border-white/10 p-3 rounded-2xl w-40 text-center shadow">
-                    <div className="text-[10px] font-bold text-amber-300 tracking-wider uppercase mb-1">Tháng 9, 2026</div>
-                    <div className="flex justify-around text-[10px] text-stone-400 font-mono">
-                      <span>T6</span><span className="text-amber-300 font-bold">T7</span><span className="text-amber-400 font-bold underline">CN</span>
-                    </div>
-                    <div className="text-[11px] text-stone-200 mt-1 font-semibold">19:00 Khởi hành</div>
-                  </div>
+                  <img src={scheduleCalendarImage} alt="Lên lịch hẹn gặp" className="w-full max-w-[220px] h-auto object-contain drop-shadow-2xl transition-transform duration-300 ease-out hover:scale-110 hover:-rotate-2 cursor-pointer" />
                 </div>
               </div>
 
-              <div className="bg-stone-950/70 backdrop-blur-xl border border-white/10 rounded-3xl p-6 shadow-xl space-y-3">
+              <div className="space-y-3">
                 <div className="flex items-start gap-3">
                   <span className="w-6 h-6 rounded-full bg-amber-400 text-stone-900 font-bold text-xs flex items-center justify-center flex-shrink-0 mt-0.5 shadow-md">4</span>
-                  <h3 className="font-bold text-base md:text-lg text-white leading-snug">{t.step4Title}</h3>
+                  <h3 className="font-bold text-base md:text-lg text-white leading-snug drop-shadow-[0_2px_6px_rgba(0,0,0,0.8)]">{t.step4Title}</h3>
                 </div>
-                <p className="text-xs text-stone-300 pl-9 leading-relaxed">{t.step4Desc}</p>
+                <p className="text-xs text-stone-200 pl-9 leading-relaxed drop-shadow-[0_2px_6px_rgba(0,0,0,0.8)]">{t.step4Desc}</p>
                 <div className="pl-9 pt-1">
-                  <div className="w-full h-24 rounded-2xl overflow-hidden border border-white/10">
-                    <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=500&auto=format&fit=crop&q=80" alt="Student Group" className="w-full h-full object-cover" />
-                  </div>
+                  <img src={matchedFriendsImage} alt="Đã ghép cặp thành công" className="w-full max-w-[280px] h-auto object-contain drop-shadow-2xl transition-transform duration-300 ease-out hover:scale-110 hover:rotate-1 cursor-pointer" />
                 </div>
               </div>
             </div>
@@ -885,17 +854,11 @@ export default function App() {
 
               <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-10 items-start">
                 <div className="flex flex-col items-center gap-3">
-                  <span className="inline-flex items-center gap-1.5 bg-stone-950/85 border border-white/20 rounded-full px-3 py-1 text-[11px] font-bold text-emerald-300 shadow-md">
-                    <Mail size={13} /> Gửi qua Email
-                  </span>
                   <div className="rounded-2xl overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.55)] max-w-sm w-full transition-transform duration-300 hover:scale-[1.03]">
                     <img src={jobbodNotificationImage} alt="Thông báo Jobbod gửi qua Email" className="w-full h-auto object-contain" />
                   </div>
                 </div>
                 <div className="flex flex-col items-center gap-3">
-                  <span className="inline-flex items-center gap-1.5 bg-stone-950/85 border border-white/20 rounded-full px-3 py-1 text-[11px] font-bold text-sky-300 shadow-md">
-                    <Bell size={13} /> Thông báo mạng xã hội
-                  </span>
                   <div className="rounded-2xl overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.55)] ring-2 ring-white/10 max-w-sm w-full transition-transform duration-300 hover:scale-[1.03]">
                     <img src={socialIconsCardImage} alt="Thông báo mạng xã hội" className="w-full h-auto object-contain" />
                   </div>
@@ -916,19 +879,19 @@ export default function App() {
 
             <div className="max-w-5xl w-full grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
               <div className="flex flex-col items-center gap-3">
-                <img src={studentVerifiedImage} alt="Student Verified" className="w-28 h-28 object-contain drop-shadow-xl" />
+                <img src={studentVerifiedImage} alt="Student Verified" className="w-40 h-40 object-contain drop-shadow-2xl" />
                 <h4 className="font-bold text-sm text-white">{t.p8Sec1Title}</h4>
                 <p className="text-xs text-stone-300 leading-relaxed max-w-[220px]">{t.p8Sec1Desc}</p>
               </div>
 
               <div className="flex flex-col items-center gap-3">
-                <img src={campusFriendsImage} alt="Bạn đồng hành trong khuôn viên trường" className="w-32 h-32 object-cover rounded-2xl shadow-xl border border-white/10" />
+                <img src={campusFriendsImage} alt="Bạn đồng hành trong khuôn viên trường" className="w-44 h-44 object-contain drop-shadow-2xl" />
                 <h4 className="font-bold text-sm text-white">{t.p8Sec2Title}</h4>
                 <p className="text-xs text-stone-300 leading-relaxed max-w-[220px]">{t.p8Sec2Desc}</p>
               </div>
 
               <div className="flex flex-col items-center gap-3">
-                <img src={campusIllustrationImage} alt="Khuôn viên trường" className="w-32 h-32 object-contain rounded-2xl shadow-xl" />
+                <img src={campusIllustrationImage} alt="Khuôn viên trường" className="w-44 h-44 object-contain drop-shadow-2xl" />
                 <h4 className="font-bold text-sm text-white">{t.p8Sec3Title}</h4>
                 <p className="text-xs text-stone-300 leading-relaxed max-w-[220px]">{t.p8Sec3Desc}</p>
               </div>
